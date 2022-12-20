@@ -31,4 +31,11 @@ or<br>
 <hr><ul>
 <li>We would like to warmly thank all those who have contributed to the realization of this react-holo bookstore. Your support and commitment have been essential to enable us to develop it and make it available to everyone. We hope that you will find this library useful and that you will get the maximum benefit from it. Thank you again for your precious collaboration!</li>
 </ul><h2>Contact</h2>
-<hr><p><span style="margin-right: 30px;"></span><a href="https://www.linkedin.com/in/sacha-brami-a4632370/"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" style="width: 10%;"></a><span style="margin-right: 30px;"></span><a href="https://github.com/bramis"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="width: 10%;"></a></p>
+<hr><p><span style="margin-right: 30px;"></span>
+<a href="https://www.linkedin.com/in/sacha-brami-a4632370/">
+  <img target="_blank" src="https://media.licdn.com/dms/image/C5603AQFrDQsf1GhbJA/profile-displayphoto-shrink_400_400/0/1554995449332?e=1677110400&v=beta&t=urBIcSph50etVqJ9_nTPq5ckLEIt0oos88QeGLIzJm0" style="width: 10%;">
+</a>
+<a href="https://www.linkedin.com/in/ryadh-kralfallah">
+  <img target="_blank" src="https://media.licdn.com/dms/image/C4E03AQETcVcBNf-1pw/profile-displayphoto-shrink_400_400/0/1663618534746?e=1677110400&v=beta&t=uAGAYKAKDNVbFfijglUv6XM1rS38lwyj6NZDOVH1wfc" style="width: 10%;">
+</a>
+</p>
