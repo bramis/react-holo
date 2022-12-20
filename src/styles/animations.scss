@@ -1,0 +1,104 @@
+/* KEYFRAMES */
+
+@keyframes rgb {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shine {
+  10% {
+    opacity: 1;
+    top: -30%;
+    left: -30%;
+    transition-property: left, top, opacity;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+    transition-timing-function: ease;
+  }
+  100% {
+    opacity: 0;
+    top: -30%;
+    left: -30%;
+    transition-property: left, top, opacity;
+  }
+}
+
+@keyframes moveX {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}
+
+@keyframes an-smoke-1 {
+  0% {
+    opacity: 0;
+    transform: translateY(5%) rotate(0.01deg);
+  }
+  50% {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0) rotate(0.01deg);
+  }
+}
+@keyframes an-smoke-2 {
+  0% {
+    opacity: 0;
+    transform: translate(-10%, 10%) rotate(0.01deg);
+  }
+  50% {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(5%) rotate(0.01deg);
+  }
+}
+@keyframes an-smoke-3 {
+  0% {
+    opacity: 0;
+    transform: translateY(10%) rotate(0.01deg);
+  }
+  50% {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0;
+    transform: translate(-10%, 5%) rotate(0.01deg);
+  }
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+/* MIXINS */
+
+@mixin blink($name, $color) {
+  @keyframes #{$name} {
+    0% {
+      filter: drop-shadow(0 0 0 $color);
+    }
+    100% {
+      filter: drop-shadow(0 0 10px $color);
+    }
+  }
+}

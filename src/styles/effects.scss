@@ -1,0 +1,50 @@
+@import './animations.scss';
+
+@mixin ShineEffect($duration) {
+  &::after {
+    content: '';
+    animation: shine $duration ease-in-out infinite;
+    animation-fill-mode: forwards;
+    position: absolute;
+    top: -100%;
+    left: -200%;
+    width: 200%;
+    height: 170%;
+    opacity: 0;
+    transform: rotate(30deg);
+    background: rgba(255, 255, 255, 0.13);
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.13) 0%,
+      rgba(255, 255, 255, 0.13) 77%,
+      rgba(255, 255, 255, 0.5) 92%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+}
+
+@mixin RainbowEffect($duration) {
+  &::after {
+    content: '';
+    background: linear-gradient(
+        45deg,
+        #ff0000 0%,
+        #ff9a00 10%,
+        #d0de21 20%,
+        #4fdc4a 30%,
+        #3fdad8 40%,
+        #2fc9e2 50%,
+        #1c7fee 60%,
+        #5f15f2 70%,
+        #ba0cf8 80%,
+        #fb07d9 90%,
+        #ff0000 100%
+      )
+      repeat 0% 0% / 300% 100%;
+    position: absolute;
+    inset: 5px;
+    filter: blur(15px);
+    transform: translateZ(-2701px); // initially -1px
+    animation: rgb $duration linear infinite;
+  }
+}

@@ -1,0 +1,296 @@
+@import './styles/effects.scss';
+
+@mixin GlowEffect() {
+  --o: 0;
+  --mx: 50%;
+  --my: 50%;
+  --posx: 50%;
+  --posy: 50%;
+  --hyp: 0;
+  --textures: url('');
+  // --textures: url(https://drive.google.com/uc?export=view&id=jVWbHaSnvxUWnVyxYQEwC3dfFc2GINQU);
+
+  .glowEffect {
+    transform: translateZ(1px);
+    transform-style: preserve-3d;
+    z-index: 4;
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    border-radius: 16px;
+    image-rendering: auto;
+    opacity: var(--o);
+    &[data-rarity='1'] {
+      opacity: var(--o);
+      mix-blend-mode: overlay;
+      background: radial-gradient(
+        farthest-corner circle at var(--mx) var(--my),
+        rgba(255, 255, 255, 0.8) 10%,
+        rgba(255, 255, 255, 0.65) 20%,
+        rgba(0, 0, 0, 0.5) 90%
+      );
+    }
+
+    &[data-rarity*='2'] {
+      &::after {
+        content: '';
+        background-image: radial-gradient(
+          farthest-corner ellipse at calc(((var(--mx)) * 0.5) + 25%)
+            calc(((var(--my)) * 0.5) + 25%),
+          rgb(255, 255, 255) 5%,
+          rgba(55, 0, 55, 0.6) 25%,
+          rgb(55, 55, 55) 90%
+        );
+        background-position: center;
+        background-size: 200% 200%;
+        filter: brightness(calc((var(--hyp) * 0.2) + 0.4)) contrast(0.85)
+          saturate(0.1);
+        mix-blend-mode: hard-light;
+        z-index: 3;
+        position: absolute;
+        inset: 0;
+      }
+    }
+
+    &[data-rarity*='2'],
+    &::after {
+      opacity: var(--o);
+      mix-blend-mode: color-dodge;
+      background-position: 0% calc(var(--posy) * 1), var(--posx) var(--posy);
+      background-blend-mode: color-dodge;
+      background-size: 200% 400%, 300%, 200%;
+      filter: brightness(calc((var(--hyp) * 0.3) + 0.6)) contrast(2.3)
+        saturate(0.8);
+      background-image: repeating-linear-gradient(
+        -22deg,
+        rgba(174, 102, 202, 0.75) calc(5% * 1),
+        rgba(228, 77, 72, 0.75) calc(5% * 2),
+        rgba(216, 197, 55, 0.75) calc(5% * 3),
+        rgba(124, 201, 62, 0.75) calc(5% * 4),
+        rgba(80, 177, 170, 0.75) calc(5% * 5),
+        rgba(136, 160, 255, 0.75) calc(5% * 6),
+        rgba(176, 105, 204, 0.75) calc(5% * 7)
+      );
+    }
+
+    &[data-rarity*='3'] {
+      &::after {
+        content: '';
+        background-position: center, 0% var(--posy),
+          calc(var(--posx) * -1) calc(var(--posy) * -1), var(--posx) var(--posy) !important;
+        background-size: 400px, 200% 400%, 195%, 200% !important;
+        filter: brightness(1) contrast(2.5) saturate(1.75) !important;
+        mix-blend-mode: soft-light !important;
+        z-index: 3;
+        position: absolute;
+        inset: 0;
+        width: inherit;
+        height: inherit;
+      }
+    }
+
+    &[data-rarity*='3'],
+    &::after {
+      opacity: var(--o);
+      mix-blend-mode: color-dodge;
+      background-blend-mode: screen, hue, hard-light;
+      background-size: 400px, 200% 700%, 300%, 200%;
+      background-position: center, 0% var(--posy), var(--posx) var(--posy),
+        var(--posx) var(--posy);
+      filter: brightness(0.8) contrast(2.95) saturate(0.5);
+      background-image: var(--textures),
+        repeating-linear-gradient(
+          0deg,
+          rgb(255, 119, 115) calc(5% * 1),
+          rgba(255, 237, 95, 1) calc(5% * 2),
+          rgba(168, 255, 95, 1) calc(5% * 3),
+          rgba(131, 255, 247, 1) calc(5% * 4),
+          rgba(120, 148, 255, 1) calc(5% * 5),
+          rgb(216, 117, 255) calc(5% * 6),
+          rgb(255, 119, 115) calc(5% * 7)
+        ),
+        repeating-linear-gradient(
+          133deg,
+          #0e152e 0%,
+          hsl(180, 10%, 60%) 3.8%,
+          hsl(180, 29%, 66%) 4.5%,
+          hsl(180, 10%, 60%) 5.2%,
+          #0e152e 10%,
+          #0e152e 12%
+        ),
+        radial-gradient(
+          farthest-corner circle at var(--mx) var(--my),
+          rgba(0, 0, 0, 0.1) 12%,
+          rgba(0, 0, 0, 0.15) 20%,
+          rgba(0, 0, 0, 0.25) 120%
+        );
+    }
+
+    &[data-rarity*='4'] {
+      &::after {
+        content: '';
+        background-position: center, 0% calc(var(--posy) * -1),
+          calc(var(--posx) * -1) calc(var(--posy) * -1), center;
+        mix-blend-mode: exclusion;
+      }
+    }
+
+    &[data-rarity*='4'],
+    &::after {
+      opacity: var(--o);
+      mix-blend-mode: color-dodge;
+      background-image: var(--textures),
+        repeating-linear-gradient(
+          -20deg,
+          rgb(253, 71, 65) calc(7% * 1),
+          rgb(255, 243, 151) calc(7% * 2),
+          rgba(168, 255, 95, 1) calc(7% * 3),
+          rgba(131, 255, 247, 1) calc(7% * 4),
+          rgb(75, 198, 255) calc(7% * 5),
+          rgb(255, 73, 246) calc(7% * 6),
+          rgb(255, 56, 49) calc(7% * 7)
+        ),
+        repeating-linear-gradient(
+          130deg,
+          rgba(89, 46, 80, 0.5) 0%,
+          hsl(118, 43%, 76%) 2.5%,
+          rgb(223, 96, 202) 5%,
+          hsl(180, 57%, 56%) 7.5%,
+          rgba(14, 21, 46, 0.5) 10%,
+          rgba(14, 21, 46, 0.5) 15%
+        ),
+        url(https://res.cloudinary.com/simey/image/upload/Dev/PokemonCards/illusion2.webp);
+      background-size: 50% 50%, 500% 500%, 1000% 1000%, 540px 700px;
+      background-position: center, 0% calc(var(--posy) * 1.5),
+        var(--posx) var(--posy), center;
+      background-blend-mode: color-burn, soft-light, normal;
+      filter: brightness(calc((var(--hyp) * 0.25) + 0.66)) contrast(2)
+        saturate(0.95);
+    }
+
+    &[data-rarity*='5'] {
+      &::after {
+        content: '';
+        background-size: 60%, 200% 400%, 195%, 200% !important;
+        background-position: center, 0% var(--posy),
+          calc(var(--posx) * -1) calc(var(--posy) * -1), var(--posx) var(--posy) !important;
+        filter: brightness(calc((var(--hyp) * 0.5) + 0.7)) contrast(2)
+          saturate(1) !important;
+        mix-blend-mode: exclusion;
+        z-index: 3;
+        inset: 0;
+        position: absolute;
+      }
+    }
+
+    &[data-rarity*='5'],
+    &::after {
+      opacity: var(--o);
+      mix-blend-mode: color-dodge;
+      background-image: var(--textures),
+        repeating-linear-gradient(
+          0deg,
+          rgb(255, 119, 115) calc(5% * 1),
+          rgba(255, 237, 95, 1) calc(5% * 2),
+          rgba(168, 255, 95, 1) calc(5% * 3),
+          rgba(131, 255, 247, 1) calc(5% * 4),
+          rgba(120, 148, 255, 1) calc(5% * 5),
+          rgb(216, 117, 255) calc(5% * 6),
+          rgb(255, 119, 115) calc(5% * 7)
+        ),
+        repeating-linear-gradient(
+          133deg,
+          #0e152e 0%,
+          hsl(180, 10%, 60%) 3.8%,
+          hsl(180, 29%, 66%) 4.5%,
+          hsl(180, 10%, 60%) 5.2%,
+          #0e152e 10%,
+          #0e152e 12%
+        ),
+        radial-gradient(
+          farthest-corner circle at var(--mx) var(--my),
+          rgba(0, 0, 0, 0.1) 12%,
+          rgba(0, 0, 0, 0.15) 20%,
+          rgba(0, 0, 0, 0.25) 120%
+        );
+      background-blend-mode: exclusion, hue, hard-light;
+      background-size: 60%, 200% 700%, 300%, 200%;
+      background-position: center, 0% var(--posy), var(--posx) var(--posy),
+        var(--posx) var(--posy);
+      filter: brightness(calc((var(--hyp) * 0.4) + 0.5)) contrast(2.5)
+        saturate(1);
+    }
+  }
+}
+
+.FlipCard {
+  
+  &:hover {
+    z-index: 1;
+    position: relative;
+  }
+
+  @include GlowEffect();
+
+  .CardImg {
+    user-select: none;
+    pointer-events: none;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    &::selection {
+      user-select: none;
+      pointer-events: none;
+      background: transparent;
+    }
+  }
+}
+
+// .CardFront {
+  // .onLoad {
+  //   &[data-raritylevel='1'],
+  //   &[data-raritylevel='2'],
+  //   &[data-raritylevel='3'],
+  //   &[data-raritylevel='4'],
+  //   &[data-raritylevel='5'] {
+  //     &::before {
+  //       content: '';
+  //       background: url('https://drive.google.com/uc?export=view&id=10XFXcHTtu36H3dHv12ncTYL41R_M8A5X')
+  //         no-repeat center center;
+  //       background-size: contain;
+  //       z-index: 1;
+  //       inset: 0;
+  //       position: absolute;
+  //       height: 100%;
+  //       width: 100%;
+  //     }
+  //   }
+  //   &[data-raritylevel='1'] {
+  //     &::before {
+  //       filter: grayscale(1);
+  //     }
+  //   }
+  //   &[data-raritylevel='2'] {
+  //     &::before {
+  //       filter: hue-rotate(320deg);
+  //     }
+  //   }
+  //   &[data-raritylevel='3'] {
+  //     &::before {
+  //       filter: hue-rotate(45deg);
+  //     }
+  //   }
+  //   &[data-raritylevel='4'] {
+  //     &::before {
+  //       filter: hue-rotate(175deg);
+  //     }
+  //   }
+  //   &[data-raritylevel='5'] {
+  //     &::before {
+  //       filter: hue-rotate(255deg);
+  //     }
+  //   }
+  // }
+// }
