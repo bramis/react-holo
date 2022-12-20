@@ -1,6 +1,6 @@
 <h1>React Holo</h1>
-<img src="https://user-images.githubusercontent.com/11952380/208766567-87211176-0eb8-4900-83e8-c5b17ca7154c.gif" width="50%"/>
-<img src="https://user-images.githubusercontent.com/11952380/208766863-82156086-e245-40e0-989f-f809e24f0d19.gif" width="50%"/>
+<img src="https://github.com/bramis/react-holo/blob/main/public/comon.gif?raw=true" width="50%"/>
+<img src="https://github.com/bramis/react-holo/blob/main/public/holo.gif?raw=true" width="50%"/>
 <hr><p>Holographic card component and 3D motion</p><h2>General Information</h2>
 <hr><ul>
 <li>A component that allows you to move the cards and add real effects like the real pokemon cards.</li>
